@@ -13,8 +13,8 @@ public class Orders {
 	List<Order> orders = new ArrayList<Order>();
 	
 	public Orders() {
-		orders.add(new Order("1", "Grande Iced Caramel Macchiato", 5.45f, 1));
-		orders.add(new Order("2", "Tall Flat White", 3.85f, 2));
+		//orders.add(new Order("1", "Grande Iced Caramel Macchiato", 5.45f, 1));
+		//orders.add(new Order("2", "Tall Flat White", 3.85f, 2));
 	}
 
 	public List<Order> getOrders() {

@@ -16,7 +16,7 @@
 			<h1 class="greeting">Hello #{formController.user.firstName}
 				#{formController.user.lastName}. Your orders are:</h1>
 
-			<h:dataTable value="#{formController.orders.orders}" var="order">
+			<h:dataTable value="#{formController.service.orders}" var="order">
 				<h:column>
 					<f:facet name="header">Order Number</f:facet>    				
       				#{order.orderNumber}
