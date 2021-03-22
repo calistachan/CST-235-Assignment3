@@ -120,4 +120,12 @@ public class FormController {
 			conn.close();
 		}
 	}
+	
+	public String onSendOrder(Order order) {
+
+		System.out.println("Send Order");
+		service.sendOrder(order);
+		
+		return "OrderResponse.xhtml";
+	}
 }

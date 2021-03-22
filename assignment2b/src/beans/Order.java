@@ -1,6 +1,15 @@
 package beans;
 
-public class Order {
+import java.io.Serializable;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="Order")
+@ManagedBean
+@SessionScoped
+public class Order implements Serializable {
 	
 	String orderNumber = "";
 	String productName = "";
@@ -15,10 +24,10 @@ public class Order {
 	}
 	
 	public Order() {
-		this.orderNumber = "897";
-		this.productName = "Product";
-		this.price = 67f;
-		this.quantity = 2;
+		this.orderNumber = "";
+		this.productName = "";
+		this.price = null;
+		this.quantity = null;
 	}
 	
 	public String getOrderNumber() {

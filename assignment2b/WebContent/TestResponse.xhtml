@@ -37,9 +37,36 @@
       				#{order.quantity}
    				</h:column>
 			</h:dataTable>
-
+		
+			<h:form>
+		<label> Order Number: </label>
+		<h:inputText label="" id="orderNumber"
+			value="#{order.orderNumber}" required="true" />
+		<h:message for="orderNumber" style="color: red" />
+		
+		<label> Product Name: </label>
+		<h:inputText label="Product name" id="productName" value="#{order.productName}"
+			required="true" />
+		<h:message for="productName" style="color: red" />
+		
+		<label> Price: </label>
+		<h:inputText label="Price" id="price"
+			value="#{order.price}" required="true" />
+		<h:message for="price" style="color: red" />
+		
+		<label> Quantity: </label>
+		<h:inputText label="Quantity" id="quantity" value="#{order.quantity}"
+			required="true" />
+		<h:message for="quantity" style="color: red" />
+		
+		<p>
+			<h:commandButton value="Send Order"
+				action="#{formController.onSendOrder(order)}" />
+			</p>
+	</h:form>
+	
 			<h:button value="Home" outcome="TestForm" />
-
+			
 		</ui:define>
 	</ui:composition>
 </h:body>
