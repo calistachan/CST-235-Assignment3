@@ -61,23 +61,6 @@ public class FormController {
 	@EJB
 	private MyTimerService timer;
 	
-	public String onSubmit(User user) {
-		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
-		//timer.createTimer(10000);
-		try {
-			getAllOrders();
-			insertOrder();
-			getAllOrders();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return "TestResponse.xhtml";
-	}
-	
-	public String onFlash(User user) {
-		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("user", user);
-		return "TestResponse2.xhtml?faces-redirect=true";
-	}
 	
 	private void getAllOrders() throws SQLException {
 		Connection conn = null;
@@ -121,11 +104,19 @@ public class FormController {
 		}
 	}
 	
-	public String onSendOrder(Order order) {
-
+	public String onSendOrder(Order order) { 
 		System.out.println("Send Order");
 		service.sendOrder(order);
 		
 		return "OrderResponse.xhtml";
+	}
+	
+	public String onLogOff() {
+		// Invalidate the Session to clear the security token
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+			
+		// Redirect to a protected page (so we get a full HTTP Request) to get Login Page
+		return "TestResponse.xhtml?faces-redirect=true";
+
 	}
 }
